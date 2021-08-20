@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateJobComponent } from './JOBS/create-job/create-job.component';
+import { CreateResumesComponent } from './RESUMES/create-resumes/create-resumes.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { CreateJobComponent } from './JOBS/create-job/create-job.component';
     HeaderComponent,
     FooterComponent,
     CreateJobComponent,
+    CreateResumesComponent,
     
   ],
   imports: [
