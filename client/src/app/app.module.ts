@@ -10,12 +10,14 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateJobComponent } from './JOBS/create-job/create-job.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     CreateJobComponent,
+    
   ],
   imports: [
     BrowserModule,
