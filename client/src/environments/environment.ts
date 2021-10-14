@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:5000/api/v1',
+  apiBaseUrl: 'https://careerfinderserver.herokuapp.com/api/v1',
 };
 
 /*

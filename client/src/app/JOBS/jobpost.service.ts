@@ -11,11 +11,15 @@ export class JobpostService {
   applicant!: Applicant;
   userID = '1';
 
-  readonly baseURLCJ = 'http://localhost:5000/findjobs/createjob';
-  readonly baseURLGA = 'http://localhost:5000/findjobs/jobs';
-  readonly baseURLGAMY = 'http://localhost:5000/findjobs/myjobs';
-  readonly baseURLPUBLISH = 'http://localhost:5000/findjobs/jobs/publish';
-  readonly baseURLNA = 'http://localhost:5000/findjobs/newapplicant';
+  readonly baseURLCJ =
+    'https://careerfinderserver.herokuapp.com/findjobs/createjob';
+  readonly baseURLGA = 'https://careerfinderserver.herokuapp.com/findjobs/jobs';
+  readonly baseURLGAMY =
+    'https://careerfinderserver.herokuapp.com/findjobs/myjobs';
+  readonly baseURLPUBLISH =
+    'https://careerfinderserver.herokuapp.com/findjobs/jobs/publish';
+  readonly baseURLNA =
+    'https://careerfinderserver.herokuapp.com/findjobs/newapplicant';
 
   constructor(private http: HttpClient) {}
 

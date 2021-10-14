@@ -8,87 +8,98 @@ import { map } from 'rxjs/operators';
 
 import { Interviews } from './interviews.model';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class InterviewsService {
-
   //initialize objects
   selectedQuestion: Interviews = new Interviews();
   InterviewQuestion: Interviews[] = [];
 
   //URl
-  readonly baseURL = "http://localhost:5000/Interviews";
+  readonly baseURL = 'https://careerfinderserver.herokuapp.com/Interviews';
 
-  readonly URL_addInterview = "http://localhost:5000/Interviews/add";
+  readonly URL_addInterview =
+    'https://careerfinderserver.herokuapp.com/Interviews/add';
 
-  readonly URL_getCommonInterviews = "http://localhost:5000/Interviews/displayci";
+  readonly URL_getCommonInterviews =
+    'https://careerfinderserver.herokuapp.com/Interviews/displayci';
 
-  readonly URL_getInterviewtips = "http://localhost:5000/Interviews/displayig";
+  readonly URL_getInterviewtips =
+    'https://careerfinderserver.herokuapp.com/Interviews/displayig';
 
-  readonly URL_getQuestiopool = "http://localhost:5000/Interviews/displayuserqp";
+  readonly URL_getQuestiopool =
+    'https://careerfinderserver.herokuapp.com/Interviews/displayuserqp';
 
-  readonly URL_getsavedQuestions = "http://localhost:5000/Interviews/displaysq";
+  readonly URL_getsavedQuestions =
+    'https://careerfinderserver.herokuapp.com/Interviews/displaysq';
 
-  readonly URL_update = "http://localhost:5000/Interviews/update";
+  readonly URL_update =
+    'https://careerfinderserver.herokuapp.com/Interviews/update';
 
-  readonly URL_getCurrentDataToupdate = "http://localhost:5000/Interviews/getuersbyID";
+  readonly URL_getCurrentDataToupdate =
+    'https://careerfinderserver.herokuapp.com/Interviews/getuersbyID';
 
-  readonly URL_delete = "http://localhost:5000/Interviews/delete"
+  readonly URL_delete =
+    'https://careerfinderserver.herokuapp.com/Interviews/delete';
 
-  readonly URL_save = "http://localhost:5000/Interviews/updatestatus"
+  readonly URL_save =
+    'https://careerfinderserver.herokuapp.com/Interviews/updatestatus';
 
-  readonly URL_Notsave = "http://localhost:5000/Interviews/reupdatestatus"
+  readonly URL_Notsave =
+    'https://careerfinderserver.herokuapp.com/Interviews/reupdatestatus';
 
   //constructor
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   //using this postInterview methods users can add interview questions
-  postInterview(In : Interviews){
-    return this.http.post(this.URL_addInterview,In)
+  postInterview(In: Interviews) {
+    return this.http.post(this.URL_addInterview, In);
   }
 
   //getCommonInterviewList method use to retrieve all common interview questions
-  getCommonInterviewList(){
+  getCommonInterviewList() {
     return this.http.get(this.URL_getCommonInterviews);
   }
 
   //getInterviewGuidelineList method use to retrieve all interview tips
-  getInterviewGuidelineList(){
+  getInterviewGuidelineList() {
     return this.http.get(this.URL_getInterviewtips);
   }
 
   //using this method users can view all the questions they have added
-  getQuestionpool(){
+  getQuestionpool() {
     return this.http.get(this.URL_getQuestiopool);
   }
 
   //getsavedQuestions method used to retrieve all bookmarked questions
-  getsavedQuestions(){
+  getsavedQuestions() {
     return this.http.get(this.URL_getsavedQuestions);
   }
 
   //to update fetch the data into update form
-  getCurrentData(_id:String): Observable<Interviews>{
-    return this.http.get<Interviews>(this.URL_getCurrentDataToupdate+`/${_id}`)
+  getCurrentData(_id: String): Observable<Interviews> {
+    return this.http.get<Interviews>(
+      this.URL_getCurrentDataToupdate + `/${_id}`
+    );
   }
 
-  //update data 
-  updateInterviews(id:String , In : Interviews): Observable<Interviews>{
+  //update data
+  updateInterviews(id: String, In: Interviews): Observable<Interviews> {
     return this.http.put<Interviews>(this.URL_update + `/${In._id}`, In);
   }
 
   //delete question and answer
-  deleteInterview(_id : string): Observable<Interviews>{
+  deleteInterview(_id: string): Observable<Interviews> {
     return this.http.delete<Interviews>(this.URL_delete + `/${_id}`);
   }
 
   //save button
-  saveQuestion(_id:string , In : Interviews): Observable<Interviews>{
-    return this.http.put<Interviews>(this.URL_save + `/${_id}`,In);
+  saveQuestion(_id: string, In: Interviews): Observable<Interviews> {
+    return this.http.put<Interviews>(this.URL_save + `/${_id}`, In);
   }
 
   //unsave
-  unsaveQuestion(_id:string , In : Interviews): Observable<Interviews>{
-    return this.http.put<Interviews>(this.URL_Notsave + `/${_id}`,In);
+  unsaveQuestion(_id: string, In: Interviews): Observable<Interviews> {
+    return this.http.put<Interviews>(this.URL_Notsave + `/${_id}`, In);
   }
 }
