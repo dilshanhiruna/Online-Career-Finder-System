@@ -59,7 +59,6 @@ exports.getJobPost = async (req, res) => {
 //@route POST /findjobs/createjob
 exports.createJobPost = async (req, res) => {
   req.body.user = req.user._id;
-  console.log(req.body.userId + "rwefauwsgofiusdgo");
   const {
     user,
     title,
