@@ -12,7 +12,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 //reuqests allow any domain
-app.use(cors({ origin: "http://localhost:4200" }));
+app.use(cors({ origin: "https://thecareerfinder.vercel.app/" }));
 
 //load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -30,7 +30,7 @@ const resumes = require("./routes/resumes.js");
 
 //Body parser
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:4200" }));
+app.use(cors({ origin: "https://thecareerfinder.vercel.app/" }));
 
 // Cookie parser
 app.use(cookieParser());
